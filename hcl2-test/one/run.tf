@@ -8,8 +8,10 @@ build {
     output "aws_ami" "{{user `image_name`}}-vb-ubuntu-12.04"{
         from =  "vb-ubuntu-12.04" 
 
-        // resulting source will get this setting:
-        ssh_username = "ubuntu"
+        communicator {
+            // resulting source will get this setting:
+            ssh_username = "ubuntu"
+        }
     }
 
     output "aws_ami" "{{user `image_name`}}-vmw-ubuntu-16.04"{
