@@ -1,20 +1,19 @@
 // starts resources to provision them.
 build {
-
-    aws_ami_from "aws-ubuntu-16.04" {
-        name = "{{user `image_name`}}-aws-ubuntu-16.04"
+    output "aws_ami" "{{user `image_name`}}-aws-ubuntu-16.04"{
+        from =  "aws-ubuntu-16.04" 
         // this creates a new resource with settings inherited from the source  
     }
 
-    aws_ami_from "vb-ubuntu-12.04" {
-        name = "{{user `image_name`}}-vb-ubuntu-12.04"
+    output "aws_ami" "{{user `image_name`}}-vb-ubuntu-12.04"{
+        from =  "vb-ubuntu-12.04" 
         communicator "ssh" {
             ssh_username = "ubuntu"
         }
     }
 
-    aws_ami_from "packer-vmw-ubuntu-16.04" {
-        name = "{{user `image_name`}}-vmw-ubuntu-16.04"
+    output "aws_ami" "{{user `image_name`}}-vmw-ubuntu-16.04"{
+        from =  "packer-vmw-ubuntu-16.04" 
     }
 
     provisioners {
