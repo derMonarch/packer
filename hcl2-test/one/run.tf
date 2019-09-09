@@ -42,17 +42,19 @@ build {
 
 }
 
-build {
-    // build an ami using the ami from the previous build block.
-    output "aws_ami" "fooooobaaaar" {
-        from = "{{user `image_name`}}-aws-ubuntu-16.04"
-    }
+// In the future:
+//
+// build {
+//     // build an ami using the ami from the previous build block.
+//     output "aws_ami" "fooooobaaaar" {
+//         from = "{{user `image_name`}}-aws-ubuntu-16.04"
+//     }
 
-    provisioners {
-        shell {
-            inline = [
-                "echo HOLY GUACAMOLE !"
-            ]
-        }
-    }
-}
+//     provisioners {
+//         shell {
+//             inline = [
+//                 "echo HOLY GUACAMOLE !"
+//             ]
+//         }
+//     }
+// }
