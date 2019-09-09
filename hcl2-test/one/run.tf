@@ -7,9 +7,9 @@ build {
 
     output "aws_ami" "{{user `image_name`}}-vb-ubuntu-12.04"{
         from =  "vb-ubuntu-12.04" 
-        communicator "ssh" {
-            ssh_username = "ubuntu"
-        }
+
+        // resulting source will get this setting:
+        ssh_username = "ubuntu"
     }
 
     output "aws_ami" "{{user `image_name`}}-vmw-ubuntu-16.04"{
@@ -42,7 +42,8 @@ build {
 
 build {
     // build an ami using the ami from the previous build block.
-    aws_ami_from "{{user `image_name`}}-aws-ubuntu-16.04" {
+    output aws_ami "fooooobaaaar" {
+        from = "{{user `image_name`}}-aws-ubuntu-16.04"
     }
 
     provisioners {
