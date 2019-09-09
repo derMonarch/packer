@@ -42,7 +42,7 @@ build {
 
 build {
     // build an ami using the ami from the previous build block.
-    output aws_ami "fooooobaaaar" {
+    output "aws_ami" "fooooobaaaar" {
         from = "{{user `image_name`}}-aws-ubuntu-16.04"
     }
 
